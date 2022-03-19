@@ -1,0 +1,36 @@
+openapi: 3.0.0
+
+info:
+  version: 1.0.0
+  title: API Docs
+
+servers:
+  - url: http://127.0.0.1/api
+    description: Local
+
+tags:
+  - name: auth
+    description: Authorization
+
+paths:
+  /auth/login:
+    $ref: auth/login.yml
+
+  /auth/register:
+    $ref: auth/register.yml
+
+  /auth/refresh:
+    $ref: auth/refresh.yml
+
+  /auth/profile:
+    $ref: auth/profile.yml
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

@@ -1,0 +1,12 @@
+get:
+  summary: User Profile
+  tags:
+    - auth
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../schemas.yml#/components/schemas/UserObject

@@ -1,0 +1,17 @@
+post:
+  summary: Refresh Token
+  tags:
+    - auth
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas.yml#/components/schemas/TokenObject
+    400:
+      description: Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas.yml#/components/schemas/ErrorObject

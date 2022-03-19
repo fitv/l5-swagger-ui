@@ -1,0 +1,36 @@
+post:
+  summary: Register
+  security: []
+  tags:
+    - auth
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              description: Username
+            password:
+              type: string
+              description: Password
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas.yml#/components/schemas/UserObject
+    400:
+      description: Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas.yml#/components/schemas/ErrorObject
+    422:
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas.yml#/components/schemas/FormErrorObject

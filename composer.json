@@ -1,0 +1,28 @@
+{
+    "name": "fitv/l5-swagger-ui",
+    "description": "Swagger UI for Laravel",
+    "keywords": [
+        "swagger",
+        "laravel"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/fitv/l5-swagger-ui/issues",
+        "source": "https://github.com/fitv/l5-swagger-ui"
+    },
+    "require": {
+        "laravel/framework": "^5.5 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fitv\\SwaggerUI\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "L5SwaggerUI\\ServiceProvider"
+            ]
+        }
+    }
+}
