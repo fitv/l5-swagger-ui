@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fitv\\SwaggerUI\\": "src"
+            "L5SwaggerUI\\": "src"
         }
     },
     "extra": {

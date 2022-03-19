@@ -32,7 +32,7 @@ return [
     /**
      * Route of the documentation page.
      */
-    'route' => '/apidoc',
+    'route' => '/api-docs',
 
     /*
      * Middleware allows to prevent unexpected access to the documentation page.
@@ -47,7 +47,7 @@ return [
     /**
      * Filepath of the json/yaml documentation file.
      */
-    'filepath' => '/vendor/l5-swagger-ui/api-docs.yml',
+    'filepath' => '/vendor/l5-swagger-ui/docs/api-docs.yml',
 
 ];
 ```
@@ -57,5 +57,5 @@ return [
 Open the API document URL in your browser
 
 ```
-http://app.dev/apidoc
+http://app.dev/api-docs
 ```
