@@ -30,6 +30,6 @@ return [
     /*
      * Filepath of the json/yaml documentation file.
      */
-    'filepath' => '/vendor/l5-swagger-ui/docs/api-docs.yml',
+    'filepath' => '/vendor/l5-swagger-ui/docs/api.yml',
 
 ];
