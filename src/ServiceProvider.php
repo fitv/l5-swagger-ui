@@ -14,7 +14,7 @@ class ServiceProvider extends LaravelServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            dirname(__DIR__).'/config/swagger.php', 'swagger'
+            dirname(__DIR__).'/config/swagger-ui.php', 'swagger-ui'
         );
     }
 
@@ -26,14 +26,14 @@ class ServiceProvider extends LaravelServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/l5-swagger-ui'),
+            dirname(__DIR__).'/resources/assets' => public_path('vendor/l5-swagger-ui'),
         ], 'public');
 
         $this->publishes([
-            dirname(__DIR__).'/config/swagger.php' => config_path('swagger.php'),
+            dirname(__DIR__).'/config/swagger-ui.php' => config_path('swagger-ui.php'),
         ], 'config');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'l5-swagger-ui');
+        $this->loadViewsFrom(dirname(__DIR__).'/resources/views', 'l5-swagger-ui');
 
         $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
