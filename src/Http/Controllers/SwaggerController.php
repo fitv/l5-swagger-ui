@@ -14,10 +14,10 @@ class SwaggerController extends BaseController
     public function index()
     {
         return view('l5-swagger-ui::index', [
-            'title' => config('swagger.title'),
-            'layout' => config('swagger.layout'),
-            'assets_path' => config('swagger.assets_path'),
-            'filepath' => config('swagger.filepath'),
+            'title' => config('swagger-ui.title'),
+            'layout' => config('swagger-ui.layout'),
+            'assets_path' => config('swagger-ui.assets_path'),
+            'filepath' => config('swagger-ui.filepath'),
         ]);
     }
 }
