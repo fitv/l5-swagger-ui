@@ -30,6 +30,10 @@ class ServiceProvider extends LaravelServiceProvider
         ], 'public');
 
         $this->publishes([
+            dirname(__DIR__).'/resources/docs' => storage_path('docs'),
+        ], 'storage');
+
+        $this->publishes([
             dirname(__DIR__).'/config/swagger-ui.php' => config_path('swagger-ui.php'),
         ], 'config');
 

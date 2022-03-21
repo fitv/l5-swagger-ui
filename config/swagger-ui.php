@@ -23,13 +23,18 @@ return [
     'middleware' => [],
 
     /*
+     * Path of the documentation files.
+     */
+    'docs_path' => storage_path('docs'),
+
+    /*
+     * Filename of the json/yaml documentation.
+     */
+    'doc_filename' => 'api.yml',
+
+    /*
      * Path of the asset files.
      */
     'assets_path' => '/vendor/l5-swagger-ui',
-
-    /*
-     * Filepath of the json/yaml documentation file.
-     */
-    'filepath' => '/vendor/l5-swagger-ui/docs/api.yml',
 
 ];

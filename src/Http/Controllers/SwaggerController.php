@@ -2,14 +2,16 @@
 
 namespace L5SwaggerUI\Http\Controllers;
 
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Str;
 
 class SwaggerController extends BaseController
 {
     /**
      * Display Swagger API page.
      *
-     * @return void
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function index()
     {
@@ -17,7 +19,42 @@ class SwaggerController extends BaseController
             'title' => config('swagger-ui.title'),
             'layout' => config('swagger-ui.layout'),
             'assets_path' => config('swagger-ui.assets_path'),
-            'filepath' => config('swagger-ui.filepath'),
+            'filename' => config('swagger-ui.route').'/'.config('swagger-ui.doc_filename'),
         ]);
+    }
+
+    /**
+     * Get document asset file.
+     *
+     * @param  string $asset
+     * @return \Illuminate\Http\Response
+     */
+    public function docs($asset)
+    {
+        $path = realpath(config('swagger-ui.docs_path').'/'.$asset);
+
+        if (! ($path && Str::startsWith($path, config('swagger-ui.docs_path')))) {
+            abort(404);
+        }
+
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        $extMap = [
+            'yml' => 'text/x-yaml',
+            'yaml' => 'text/x-yaml',
+            'json' => 'application/json',
+        ];
+
+        if (! isset($extMap[$ext])) {
+            abort(404);
+        }
+
+        return new Response(
+            file_get_contents($path),
+            200,
+            [
+                'Content-Type' => $extMap[$ext],
+                'Cache-Control' => 'max-age=31536000, public',
+            ]
+        );
     }
 }

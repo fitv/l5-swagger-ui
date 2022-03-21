@@ -19,17 +19,17 @@ php artisan vendor:publish --provider "L5SwaggerUI\ServiceProvider"
 
 return [
 
-    /**
+    /*
      * Title of the documentation page.
      */
     'title' => 'Laravel Swagger UI',
 
-    /**
+    /*
      * Layout of the Swagger UI.
      */
     'layout' => 'StandaloneLayout',
 
-    /**
+    /*
      * Route of the documentation page.
      */
     'route' => '/api-docs',
@@ -39,15 +39,20 @@ return [
      */
     'middleware' => [],
 
-    /**
+    /*
+     * Path of the documentation files.
+     */
+    'docs_path' => storage_path('docs'),
+
+    /*
+     * Filename of the json/yaml documentation.
+     */
+    'doc_filename' => 'api.yml',
+
+    /*
      * Path of the asset files.
      */
     'assets_path' => '/vendor/l5-swagger-ui',
-
-    /**
-     * Filepath of the json/yaml documentation file.
-     */
-    'filepath' => '/vendor/l5-swagger-ui/docs/api.yml',
 
 ];
 ```
