@@ -37,7 +37,7 @@
     <script>
       window.onload = function() {
         const ui = SwaggerUIBundle({
-          url: "{{ $filename }}",
+          url: "{{ $filename }}?{{ $file_hash }}",
           dom_id: '#swagger-ui',
           deepLinking: true,
           validatorUrl: null,

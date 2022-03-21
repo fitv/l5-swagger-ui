@@ -20,6 +20,7 @@ class SwaggerController extends BaseController
             'layout' => config('swagger-ui.layout'),
             'assets_path' => config('swagger-ui.assets_path'),
             'filename' => config('swagger-ui.route').'/'.config('swagger-ui.doc_filename'),
+            'file_hash' => md5_file(config('swagger-ui.docs_path').'/'.config('swagger-ui.doc_filename')),
         ]);
     }
 
