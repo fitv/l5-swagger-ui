@@ -2,6 +2,7 @@
 
 namespace L5SwaggerUI\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Str;
@@ -20,17 +21,17 @@ class SwaggerController extends BaseController
             'layout' => config('swagger-ui.layout'),
             'assets_path' => config('swagger-ui.assets_path'),
             'filename' => config('swagger-ui.route').'/'.config('swagger-ui.doc_filename'),
-            'file_hash' => md5_file(config('swagger-ui.docs_path').'/'.config('swagger-ui.doc_filename')),
         ]);
     }
 
     /**
      * Get document asset file.
      *
+     * @param  \Illuminate\Http\Request $request
      * @param  string $asset
      * @return \Illuminate\Http\Response
      */
-    public function docs($asset)
+    public function docs(Request $request, $asset)
     {
         $path = realpath(config('swagger-ui.docs_path').'/'.$asset);
 
@@ -49,12 +50,18 @@ class SwaggerController extends BaseController
             abort(404);
         }
 
+        $ifNoneMatch = $request->header('If-None-Match');
+
+        if ($ifNoneMatch && $ifNoneMatch === md5_file($path)) {
+            return new Response('', 304);
+        }
+
         return new Response(
             file_get_contents($path),
             200,
             [
+                'ETag' => md5_file($path),
                 'Content-Type' => $extMap[$ext],
-                'Cache-Control' => 'max-age=31536000, public',
             ]
         );
     }

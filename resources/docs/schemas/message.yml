@@ -1,0 +1,5 @@
+description: Message Object
+type: object
+properties:
+  message:
+    type: string

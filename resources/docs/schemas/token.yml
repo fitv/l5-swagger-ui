@@ -1,0 +1,12 @@
+description: Token Object
+type: object
+properties:
+  access_token:
+    type: string
+    description: token
+  token_type:
+    type: string
+    description: token type
+  expires_in:
+    type: integer
+    description: Expiration（seconds）

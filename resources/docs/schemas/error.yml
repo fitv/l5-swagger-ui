@@ -1,0 +1,5 @@
+description: Error Object
+type: object
+properties:
+  message:
+    type: string

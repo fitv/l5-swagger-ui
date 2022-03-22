@@ -1,0 +1,9 @@
+description: User Object
+type: object
+properties:
+  id:
+    type: integer
+    description: ID
+  username:
+    type: string
+    description: Username

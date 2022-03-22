@@ -21,16 +21,16 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../schemas.yml#/components/schemas/TokenObject
+            $ref: ../schemas/token.yml
     400:
       description: Failed
       content:
         application/json:
           schema:
-            $ref: ../schemas.yml#/components/schemas/ErrorObject
+            $ref: ../schemas/error.yml
     422:
       description: Validation Error
       content:
         application/json:
           schema:
-            $ref: ../schemas.yml#/components/schemas/FormErrorObject
+            $ref: ../schemas/form-error.yml

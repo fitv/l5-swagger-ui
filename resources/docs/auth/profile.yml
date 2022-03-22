@@ -9,4 +9,4 @@ get:
         application/json:
           schema:
             allOf:
-              - $ref: ../schemas.yml#/components/schemas/UserObject
+              - $ref: ../schemas/user.yml

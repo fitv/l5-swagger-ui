@@ -25,7 +25,7 @@ return [
     /*
      * Path of the documentation files.
      */
-    'docs_path' => storage_path('docs'),
+    'docs_path' => resource_path('docs'),
 
     /*
      * Filename of the json/yaml documentation.

@@ -1,0 +1,10 @@
+description: Validation Error Object
+type: object
+properties:
+  message:
+    type: string
+  errors:
+    type: object
+    properties:
+      field_name:
+        type: string

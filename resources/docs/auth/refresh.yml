@@ -8,10 +8,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../schemas.yml#/components/schemas/TokenObject
+            $ref: ../schemas/token.yml
     400:
       description: Failed
       content:
         application/json:
           schema:
-            $ref: ../schemas.yml#/components/schemas/ErrorObject
+            $ref: ../schemas/error.yml
