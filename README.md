@@ -12,7 +12,7 @@ composer require fitv/l5-swagger-ui
 php artisan vendor:publish --provider "L5SwaggerUI\ServiceProvider"
 ```
 
-## Configuration
+## Config
 
 ```php
 <?php
@@ -64,3 +64,13 @@ Open the API document URL in your browser
 ```
 http://app.dev/api-docs
 ```
+
+To improve access speed, you can merge multiple YAML files into one.
+
+```shell
+npm install swagger-merger -g
+
+swagger-merger -i resources/docs/api.yml -o swagger.yml
+```
+
+Then change the `doc_filename` in the config file to `swagger.yml`.
